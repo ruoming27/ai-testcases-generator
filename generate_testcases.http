@@ -1,0 +1,8 @@
+POST http://127.0.0.1:8000/generate/
+Content-Type: application/json
+
+{
+  "requirement": "The login page should allow a user to log in with valid credentials."
+}
+
+
