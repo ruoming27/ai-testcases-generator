@@ -1,88 +1,97 @@
-🧪 AI Test Case Generator
+# 🧪 AI Test Case Generator
 
 An AI-powered tool to automatically generate software test cases from requirements. Built with FastAPI, Streamlit, and OpenAI.
 
-Features
+## Features
 
-Generate test cases from natural language requirements using OpenAI.
+- Generate test cases from natural language requirements using OpenAI.
 
-Store generated test cases in a PostgreSQL database.
+- Store generated test cases in a PostgreSQL database.
 
-Interactive web interface via Streamlit.
+- Interactive web interface via Streamlit.
 
-Works both locally and on Streamlit Cloud.
+- Works both locally and on Streamlit Cloud.
 
-Tech Stack
+## Tech Stack
 
-Python 3.11+
+- Python 3.11+
 
-FastAPI (backend API)
+- FastAPI (backend API)
 
-Streamlit (frontend UI)
+- Streamlit (frontend UI)
 
-OpenAI API (AI test case generation)
+- OpenAI API (AI test case generation)
 
-PostgreSQL (database)
+- PostgreSQL (database)
 
-python-dotenv (for local environment variables)
+- python-dotenv (for local environment variables)
 
-Getting Started (Local Development)
+## Getting Started (Local Development)
 1. Clone the repository
+```bash
 git clone https://github.com/ruoming27/ai-testcases-generator.git
+
 cd ai-testcases-generator
+```
 
 2. Create a virtual environment
+```bash
 python -m venv venv
+```
 
 3. Activate the virtual environment
 
 Windows (PowerShell)
-
+```bash
 .\venv\Scripts\Activate
-
+```
 
 macOS/Linux
-
+```bash
 source venv/bin/activate
+```
 
 4. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 5. Configure environment variables
 
 Create a .env file in the project root:
-
+```ini
 OPENAI_API_KEY=sk-xxxx
 POSTGRES_DB=testcase_db
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=pass4SQL
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
-
+```
 
 Note: .env should not be uploaded to GitHub.
 
 6. Run locally
+```bash
 streamlit run app.py
+```
+- Open your browser at: http://localhost:8501
 
+- Enter a requirement and generate test cases.
 
-Open your browser at: http://localhost:8501
+## Deployment on Streamlit Cloud
 
-Enter a requirement and generate test cases.
+1. Push your repository to GitHub.
 
-Deployment on Streamlit Cloud
+2. Go to Streamlit Cloud and connect your GitHub repo.
 
-Push your repository to GitHub.
+3. Set Secrets for environment variables (OPENAI_API_KEY, PostgreSQL credentials).
 
-Go to Streamlit Cloud and connect your GitHub repo.
+4. Deploy your app.
 
-Set Secrets for environment variables (OPENAI_API_KEY, PostgreSQL credentials).
+5. Set Sharing → Public to make it accessible to anyone.
 
-Deploy your app.
-
-Set Sharing → Public to make it accessible to anyone.
-
-Project Structure
+## Project Structure
+```bash
 ai-testcases-generator/
 │
 ├─ backend/
@@ -94,37 +103,38 @@ ai-testcases-generator/
 ├─ requirements.txt
 ├─ .env                    # Local environment variables (ignored by git)
 ├─ README.md
+```
+## Usage
 
-Usage
+1. Enter a software requirement in the input box.
 
-Enter a software requirement in the input box.
+2. Click Generate Test Cases.
 
-Click Generate Test Cases.
+3. View generated test cases with description, steps, and expected results.
 
-View generated test cases with description, steps, and expected results.
+## Notes
 
-Notes
+- Local development: requires .env file.
 
-Local development: requires .env file.
+- Streamlit Cloud deployment: use Secrets for environment variables.
 
-Streamlit Cloud deployment: use Secrets for environment variables.
+- PostgreSQL must be running locally for local testing.
 
-PostgreSQL must be running locally for local testing.
-
-License
+## License
 
 This project is open-source under the MIT License.
 
 ✅ How to upload this to GitHub
 
-Save this as README.md in your project root.
+1. Save this as README.md in your project root.
 
-Stage and commit the file:
-
+2. Stage and commit the file:
+```bash
 git add README.md
 git commit -m "Add public README"
+```
 
-
-Push to GitHub:
-
+3. Push to GitHub:
+```bash
 git push origin main
+```
