@@ -4,8 +4,7 @@ An AI-powered tool to automatically generate software test cases from requiremen
 
 ## Live Demo
 
-Check out the live web app here:
-https://ai-testcases-generator-aw.streamlit.app/
+Check out the live web app [here:](https://ai-testcases-generator-aw.streamlit.app/)
 
 ## Features
 
