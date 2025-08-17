@@ -1,17 +1,40 @@
+from backend.ai_generator import generate_test_cases, parse_ai_output
 import streamlit as st
-from backend.ai_generator import generate_test_cases  # adjust import if needed
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
 
 st.title("AI Test Case Generator")
 
-requirement = st.text_input("Enter requirement:")
+# User input
+requirement = st.text_area("Enter requirement:", "")
 
-if st.button("Generate Test Cases"):
-    if requirement:
-        test_cases = generate_test_cases(requirement)
-        st.subheader("Generated Test Cases")
-        for i, case in enumerate(test_cases, start=1):
-            st.markdown(f"**{i}. {case['description']}**")
-            st.markdown(f"- Steps: {case['steps']}")
-            st.markdown(f"- Expected: {case['expected_result']}")
+if st.button("Generate Test Cases") and requirement.strip():
+    # Generate raw test cases from AI
+    raw_output = generate_test_cases(requirement)
+
+    # Parse AI output
+    test_cases = parse_ai_output(raw_output)
+
+    if not test_cases:
+        st.warning("No test cases were generated.")
     else:
-        st.warning("Please enter a requirement!")
+        st.success(f"{len(test_cases)} test case(s) generated!")
+
+        # Display test cases safely
+        for i, case in enumerate(test_cases, 1):
+            if isinstance(case, dict):
+                desc = case.get("description", "No description")
+                steps = case.get("steps", "")
+                expected = case.get("expected_result", "")
+                st.markdown(f"**{i}. {desc}**")
+                if steps:
+                    st.markdown(f"- Steps: {steps}")
+                if expected:
+                    st.markdown(f"- Expected Result: {expected}")
+            else:
+                # fallback if case is just a string
+                st.markdown(f"**{i}. {case}**")
