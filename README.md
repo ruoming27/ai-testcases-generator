@@ -2,6 +2,11 @@
 
 An AI-powered tool to automatically generate software test cases from requirements. Built with FastAPI, Streamlit, and OpenAI.
 
+## Live Demo
+
+Check out the live web app here:
+https://ai-testcases-generator-aw.streamlit.app/
+
 ## Features
 
 - Generate test cases from natural language requirements using OpenAI.
